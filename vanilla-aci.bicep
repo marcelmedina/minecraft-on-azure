@@ -142,7 +142,7 @@ resource containerGroup 'Microsoft.ContainerInstance/containerGroups@2019-12-01'
           port: 25565
         }
         {
-          protocol: 'TCP'
+          protocol: 'UDP'
           port: 19132
         }
       ]

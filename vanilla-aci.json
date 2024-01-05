@@ -5,7 +5,7 @@
     "_generator": {
       "name": "bicep",
       "version": "0.24.24.22086",
-      "templateHash": "9429490963473896478"
+      "templateHash": "11740585162139265511"
     }
   },
   "parameters": {
@@ -196,7 +196,7 @@
               "port": 25565
             },
             {
-              "protocol": "TCP",
+              "protocol": "UDP",
               "port": 19132
             }
           ],

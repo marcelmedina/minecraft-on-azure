@@ -4,8 +4,8 @@
   "metadata": {
     "_generator": {
       "name": "bicep",
-      "version": "0.4.1008.15138",
-      "templateHash": "6967969420110808873"
+      "version": "0.24.24.22086",
+      "templateHash": "5073697286440567033"
     }
   },
   "parameters": {
@@ -77,15 +77,21 @@
       "metadata": {
         "description": "Minecraft version to run (use LATEST for current version)"
       }
+    },
+    "type": {
+      "type": "string",
+      "defaultValue": "PAPER",
+      "metadata": {
+        "description": "Server type (VANILLA, FORGE, BUKKIT, SPIGOT, PAPER, FTB, CURSEFORGE, SPONGEVANILLA, SPONGEFORGE)"
+      }
     }
   },
-  "functions": [],
   "variables": {
     "fileShareName": "minecraftdata",
     "storageAccountType": "Standard_LRS",
     "location": "[resourceGroup().location]",
     "storageAccountName": "[format('{0}storage', parameters('serverName'))]",
-    "javaMemory": "[sub(mul(parameters('memory'), 1000), 200)]"
+    "javaMemory": "[sub(mul(parameters('memory'), 1024), 200)]"
   },
   "resources": [
     {
@@ -149,6 +155,10 @@
                 {
                   "name": "VERSION",
                   "value": "[parameters('version')]"
+                },
+                {
+                  "name": "TYPE",
+                  "value": "[parameters('type')]"
                 }
               ],
               "resources": {
@@ -160,6 +170,9 @@
               "ports": [
                 {
                   "port": 25565
+                },
+                {
+                  "port": 19132
                 }
               ],
               "volumeMounts": [
@@ -179,6 +192,10 @@
             {
               "protocol": "TCP",
               "port": 25565
+            },
+            {
+              "protocol": "UDP",
+              "port": 19132
             }
           ],
           "dnsNameLabel": "[parameters('serverName')]"

@@ -28,6 +28,8 @@ param motd string = ''
 @description('Minecraft version to run (use LATEST for current version)')
 param version string = 'LATEST'
 
+@description('Server type (VANILLA, FORGE, BUKKIT, SPIGOT, PAPER, FTB, CURSEFORGE, SPONGEVANILLA, SPONGEFORGE)')
+param type string = 'PAPER'
 
 var fileShareName  = 'minecraftdata'
 
@@ -99,6 +101,10 @@ resource containerGroup 'Microsoft.ContainerInstance/containerGroups@2019-12-01'
               name: 'VERSION'
               value: version
             }
+            {
+              name: 'TYPE'
+              value: type
+            }
             
           ]
           resources: {
@@ -110,6 +116,9 @@ resource containerGroup 'Microsoft.ContainerInstance/containerGroups@2019-12-01'
           ports: [
             {
               port: 25565
+            }
+            {
+              port: 19132
             }
           ]
           volumeMounts: [
@@ -129,6 +138,10 @@ resource containerGroup 'Microsoft.ContainerInstance/containerGroups@2019-12-01'
         {
           protocol: 'TCP'
           port: 25565
+        }
+        {
+          protocol: 'UDP'
+          port: 19132
         }
       ]
       dnsNameLabel: serverName

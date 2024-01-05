@@ -5,7 +5,7 @@
     "_generator": {
       "name": "bicep",
       "version": "0.24.24.22086",
-      "templateHash": "5073697286440567033"
+      "templateHash": "9429490963473896478"
     }
   },
   "parameters": {
@@ -169,10 +169,12 @@
               },
               "ports": [
                 {
-                  "port": 25565
+                  "port": 25565,
+                  "protocol": "TCP"
                 },
                 {
-                  "port": 19132
+                  "port": 19132,
+                  "protocol": "UDP"
                 }
               ],
               "volumeMounts": [
@@ -194,7 +196,7 @@
               "port": 25565
             },
             {
-              "protocol": "UDP",
+              "protocol": "TCP",
               "port": 19132
             }
           ],

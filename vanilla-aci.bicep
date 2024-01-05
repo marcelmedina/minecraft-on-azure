@@ -116,9 +116,11 @@ resource containerGroup 'Microsoft.ContainerInstance/containerGroups@2019-12-01'
           ports: [
             {
               port: 25565
+              protocol: 'TCP'
             }
             {
               port: 19132
+              protocol: 'UDP'
             }
           ]
           volumeMounts: [
@@ -140,7 +142,7 @@ resource containerGroup 'Microsoft.ContainerInstance/containerGroups@2019-12-01'
           port: 25565
         }
         {
-          protocol: 'UDP'
+          protocol: 'TCP'
           port: 19132
         }
       ]

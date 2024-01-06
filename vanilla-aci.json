@@ -5,7 +5,7 @@
     "_generator": {
       "name": "bicep",
       "version": "0.24.24.22086",
-      "templateHash": "11740585162139265511"
+      "templateHash": "15496192230248160961"
     }
   },
   "parameters": {
@@ -84,6 +84,13 @@
       "metadata": {
         "description": "Server type (VANILLA, FORGE, BUKKIT, SPIGOT, PAPER, FTB, CURSEFORGE, SPONGEVANILLA, SPONGEFORGE)"
       }
+    },
+    "mode": {
+      "type": "string",
+      "defaultValue": "creative",
+      "metadata": {
+        "description": "Server mode (survival, creative, adventure, spectator)"
+      }
     }
   },
   "variables": {
@@ -159,6 +166,10 @@
                 {
                   "name": "TYPE",
                   "value": "[parameters('type')]"
+                },
+                {
+                  "name": "MODE",
+                  "value": "[parameters('mode')]"
                 }
               ],
               "resources": {

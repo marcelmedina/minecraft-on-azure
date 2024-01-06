@@ -31,6 +31,9 @@ param version string = 'LATEST'
 @description('Server type (VANILLA, FORGE, BUKKIT, SPIGOT, PAPER, FTB, CURSEFORGE, SPONGEVANILLA, SPONGEFORGE)')
 param type string = 'PAPER'
 
+@description('Server mode (survival, creative, adventure, spectator)')
+param mode string = 'creative'
+
 var fileShareName  = 'minecraftdata'
 
 
@@ -104,6 +107,10 @@ resource containerGroup 'Microsoft.ContainerInstance/containerGroups@2019-12-01'
             {
               name: 'TYPE'
               value: type
+            }
+            {
+              name: 'MODE'
+              value: mode
             }
             
           ]

@@ -7,6 +7,8 @@ Huge thanks to itzg for the great container he publishes for running minecraft s
 
 To run it, just create a deployment on azure from a template, pointing it to the compiled arm template available, tweak the parameters, and you are done! Don't forget to accept the EULA, as it will crash the server if you don't.
 
+> NOTE: If any modification is made to the Bicep file, you will need to compile it again. Run `az bicep build --file .\vanilla-aci.bicep`.
+
 To deploy the servers:
 
 Vanilla: [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmarcelmedina%2Fminecraft-on-azure%2Fmaster%2Fvanilla-aci.json)

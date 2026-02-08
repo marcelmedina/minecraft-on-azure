@@ -4,8 +4,8 @@
   "metadata": {
     "_generator": {
       "name": "bicep",
-      "version": "0.24.24.22086",
-      "templateHash": "15496192230248160961"
+      "version": "0.39.26.7824",
+      "templateHash": "13434157943112993729"
     }
   },
   "parameters": {
@@ -170,6 +170,10 @@
                 {
                   "name": "MODE",
                   "value": "[parameters('mode')]"
+                },
+                {
+                  "name": "PLUGINS",
+                  "value": "https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/spigot,https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/spigot"
                 }
               ],
               "resources": {
@@ -221,7 +225,7 @@
               "readOnly": false,
               "shareName": "[variables('fileShareName')]",
               "storageAccountName": "[variables('storageAccountName')]",
-              "storageAccountKey": "[listKeys(variables('storageAccountName'), '2021-04-01').keys[0].value]"
+              "storageAccountKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2021-04-01').keys[0].value]"
             }
           }
         ]

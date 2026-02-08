@@ -112,7 +112,10 @@ resource containerGroup 'Microsoft.ContainerInstance/containerGroups@2019-12-01'
               name: 'MODE'
               value: mode
             }
-            
+            {
+              name: 'PLUGINS'
+              value: 'https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/spigot,https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/spigot'
+            }
           ]
           resources: {
             requests: {
@@ -163,7 +166,7 @@ resource containerGroup 'Microsoft.ContainerInstance/containerGroups@2019-12-01'
           readOnly: false
           shareName: fileShareName
           storageAccountName: storageAccount.name
-          storageAccountKey: listKeys(storageAccount.name, storageAccount.apiVersion).keys[0].value
+          storageAccountKey: storageAccount.listKeys().keys[0].value
         }
       }
     ]
